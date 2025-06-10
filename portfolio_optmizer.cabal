@@ -1,0 +1,52 @@
+cabal-version:      2.4
+name:               portfolio-optimizer
+version:            0.1.0.0
+synopsis:           A parallel portfolio optimization tool in Haskell.
+author:             Your Name
+maintainer:         your.email@example.com
+license:            NONE
+category:           Finance
+
+common common-settings
+    default-language: Haskell2010
+    ghc-options:
+        -Wall -Wcompat -threaded
+
+    build-depends:
+          base            >=4.14 && <5
+        , text
+        , bytestring
+        , containers
+        , time
+        , vector
+        -- Core Libraries Needed:
+        -- For CSV parsing
+        , cassava  
+        , aeson  
+        -- For Math (Matrix, Vector)       
+        , hmatrix  
+        , statistics
+        -- For random weight generation      
+        , random  
+        -- For parallel map        
+        , parallel
+        -- For parallel strategies (rnf)        
+        , deepseq         
+        , async
+        , split 
+
+library
+    import:           common-settings
+    hs-source-dirs:   src
+    exposed-modules:  Portfolio.Types
+                    , Portfolio.DataLoader
+                    , Portfolio.Core
+                    , Portfolio.Simulation
+                    , Portfolio.Utils
+
+executable portfolio-optimizer
+    import:           common-settings
+    ghc-options:      -rtsopts -with-rtsopts=-N
+    main-is:          Main.hs
+    hs-source-dirs:   app
+    build-depends:    portfolio-optimizer
