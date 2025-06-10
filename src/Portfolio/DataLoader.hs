@@ -23,13 +23,8 @@ loadReturnsMatrix filepath = do
         Right (rows :: V.Vector (V.Vector String)) -> do
             let stringRows = V.toList $ V.map (V.toList . V.tail) rows
             
-            -- ** THE FIX IS HERE **
-            -- Instead of failing on the first bad value, we will process each row.
-            -- A row is only considered "good" if ALL of its values can be parsed as a Double.
             let maybeGoodRows = map (sequence . map (readMaybe :: String -> Maybe Double)) stringRows
             
-            -- `catMaybes` will filter out all the `Nothing` values,
-            -- effectively dropping any day that had bad data for any stock.
             let goodRows = catMaybes maybeGoodRows
 
             if null goodRows

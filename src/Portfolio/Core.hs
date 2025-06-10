@@ -22,7 +22,6 @@ calculatePortfolioVolatility returnsMat weights =
         dailyVariance = variance portfolioDailyReturns
     in sqrt (max 0 dailyVariance) * sqrt tradingDays
 
--- FIX: Rename arguments to 'ret' and 'vol' to avoid shadowing.
 calculateSharpeRatio :: Double -> Double -> Sharpe
 calculateSharpeRatio ret vol
     | vol < 1e-9 = 0.0
@@ -33,7 +32,6 @@ calculatePortfolioMetrics returnsMatrix stocks weights =
     let
         pRet = calculatePortfolioReturn returnsMatrix weights
         pVol = calculatePortfolioVolatility returnsMatrix weights
-        -- FIX: Use a different name for the calculated Sharpe value.
         sharpeValue = calculateSharpeRatio pRet pVol
     in Portfolio {
         pStocks = stocks,

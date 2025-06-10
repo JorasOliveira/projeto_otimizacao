@@ -1,7 +1,3 @@
-Of course! And you are most welcome. It was a pleasure working through this complex and interesting project with you. A great README is the final, professional touch.
-
-Here is a complete, "perfect" README.md file tailored to your project, including all the requested sections.
-
 Parallel Portfolio Optimizer in Haskell
 
 A project for the Insper Functional Programming course (Programação Funcional), demonstrating the use of parallelism and functional principles to solve a computationally intensive financial problem.
@@ -123,4 +119,4 @@ Diagnose complex runtime issues related to parallel programming, such as deadloc
 Suggest idiomatic Haskell patterns and refactor code for clarity and correctness.
 
 Help generate and refine documentation, such as this README file.
-The core logic, problem decomposition, and final implementation decisions were directed by the human developer.*
+The core logic and code, problem decomposition, and final implementation decisions were directed by the human developer.*

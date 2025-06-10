@@ -4,7 +4,6 @@ module Portfolio.Simulation (
 ) where
 
 import System.Random (StdGen, randoms)
--- ** THE FIX IS HERE: Added toList **
 import Numeric.LinearAlgebra (fromList, toList)
 import Data.List (find)
 import Data.Maybe (isJust)

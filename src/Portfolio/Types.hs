@@ -19,7 +19,7 @@ type Sharpe = Double
 
 data TimePoint = TimePoint {
     close :: Double
-} deriving (Show, Generic) -- Removed ToJSON from here
+} deriving (Show, Generic) 
 
 instance FromJSON TimePoint where
     parseJSON = withObject "TimePoint" $ \v -> TimePoint
@@ -27,7 +27,6 @@ instance FromJSON TimePoint where
 
 -- Add the manual ToJSON instance
 instance ToJSON TimePoint where
-    -- We must convert the Double back to a String to match the API's format
     toJSON (TimePoint c) = object ["4. close" .= show c]
 
 data HistoricalData = HistoricalData {
